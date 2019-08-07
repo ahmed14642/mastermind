@@ -56,5 +56,19 @@ public class MasterMindTest {
         assertThat(feedback).containsExactly('B');
     }
 
+    @Test
+    public void perfectMatchingGuessGetsFourBlackFeedback() {
+        // given
+        Character[] code = {'O', 'O', 'O', 'O'};
+        MasterMind masterMind = new MasterMind(code);
+
+        Character[] guess = {'O', 'O', 'O', 'O'};
+
+        // when
+        Character[] feedback = masterMind.play(guess);
+
+        // then
+        assertThat(feedback).containsExactly('B', 'B', 'B', 'B');
+    }
 
 }

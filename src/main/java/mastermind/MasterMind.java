@@ -13,13 +13,18 @@ public class MasterMind {
     public Character[] play(Character[] guess) {
         List<Character> feedback = new ArrayList<>();
         for(int i=0;i<guess.length;i++){
-            for(int j=0;j<guess.length;j++){
+            loopOverGuess: for(int j=0;j<guess.length;j++){
+                if(guess[i]==code[i]){
+                    feedback.add('B');
+                    break loopOverGuess;
+                }
                 if(guess[i]==code[j]){
                     if(i == j) {
                         feedback.add('B');
                     } else {
                         feedback.add('W');
                     }
+
                 }
             }
         }
