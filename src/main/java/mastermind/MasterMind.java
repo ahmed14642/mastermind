@@ -15,7 +15,11 @@ public class MasterMind {
         for(int i=0;i<guess.length;i++){
             for(int j=0;j<guess.length;j++){
                 if(guess[i]==code[j]){
-                    feedback.add('W');
+                    if(i == j) {
+                        feedback.add('B');
+                    } else {
+                        feedback.add('W');
+                    }
                 }
             }
         }

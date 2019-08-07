@@ -41,4 +41,20 @@ public class MasterMindTest {
         // then
         assertThat(feedback).containsExactly('W');
     }
+    @Test
+    public void rightColorRightPositionGetsOneBlackFeedback() {
+        // given
+        Character[] code = {'O', 'G', 'O', 'O'};
+        MasterMind masterMind = new MasterMind(code);
+
+        Character[] guess = {'B', 'G', 'B', 'B'};
+
+        // when
+        Character[] feedback = masterMind.play(guess);
+
+        // then
+        assertThat(feedback).containsExactly('B');
+    }
+
+
 }
